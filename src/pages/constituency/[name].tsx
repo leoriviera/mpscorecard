@@ -47,6 +47,7 @@ export const Scorecard: NextPage = () => {
       <h2>How your MP voted on these key issues this year:</h2>
 
       <div>{mpscore.votes.map((vote) => vote.description)}</div>
+      <div>{mpscore.votes.map((vote) => vote.grade)}</div>
     </>
   );
 };
