@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useEffect } from "react";
+import PostcodeInput from "./PostcodeInput";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,10 +26,12 @@ export default function Home() {
 
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+      className={`flex min-h-screen flex-col items-center p-24 ${inter.className}`}
     >
       <h1>How did your MP vote on the issues that mattered most this year?</h1>
       <h2>Enter your postcode to get their 2022 Report Card.</h2>
+      <div>Your postcode</div>
+      <PostcodeInput />
     </main>
   );
 }
