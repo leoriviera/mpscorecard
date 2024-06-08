@@ -25,12 +25,18 @@ export const Scorecard: NextPage = () => {
         grade: "A",
       },
     ],
-    thumbnail: "www.google.com",
+    thumbnail:
+      "https://upload.wikimedia.org/wikipedia/commons/1/1f/Official_portrait_of_Keir_Starmer_%28crop%29.jpg",
   };
   // Render scorecard page
   return (
     <>
-      <Image src={mpscore.thumbnail} alt={mpscore.name + " image"}></Image>
+      <Image
+        src={mpscore.thumbnail}
+        width={50}
+        height={100}
+        alt={mpscore.name + " image"}
+      ></Image>
       <h1>Your MP&apos;s 2024 Report Card</h1>
       <div>
         <div>Your MP: {mpscore.name}</div>

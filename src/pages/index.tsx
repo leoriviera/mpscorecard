@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import { useEffect, useRef } from "react";
+import { Scorecard } from "./constituency/[name]";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -53,6 +54,7 @@ export default function Home() {
           </button>
         </form>
       </div>
+      <Scorecard></Scorecard>
     </main>
   );
 }
