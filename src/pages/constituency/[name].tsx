@@ -67,7 +67,7 @@ export const Scorecard: NextPage = () => {
 export const getStaticPaths: GetStaticPaths = async () => {
   // Generate the paths we want to pre-render based on posts
   const paths = Object.keys(constituencies).map((c) => ({
-    params: { id: kebabCase(c) },
+    params: { slug: kebabCase(c) },
   }));
 
   // We'll pre-render only these paths at build time.
@@ -82,7 +82,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<
   {},
   {
-    id: keyof typeof constituencies;
+    slug: keyof typeof constituencies;
   }
 > = async ({ params }) => {
   if (!params) {
@@ -92,9 +92,9 @@ export const getStaticProps: GetStaticProps<
     };
   }
 
-  const { id } = params;
+  const { slug } = params;
 
-  const constituencyInfo = constituencies[id];
+  const constituencyInfo = constituencies[slug];
 
   // Call an external API endpoint to get posts
   const res = await fetch("https://.../posts");
@@ -108,3 +108,5 @@ export const getStaticProps: GetStaticProps<
     },
   };
 };
+
+export default Scorecard;
