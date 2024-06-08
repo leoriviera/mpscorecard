@@ -1,28 +1,31 @@
 import { Inter } from "next/font/google";
 import { useEffect, useRef } from "react";
 import { Scorecard } from "./constituency/[name]";
+import kebabCase from "lodash.kebabcase";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const fetchConstituency = async (postcode: string) => {
-  const find = `https://members-api.parliament.uk/api/Location/Constituency/Search?searchText=${postcode}&skip=0&take=1`;
-
-  const response = await fetch(find);
-
-  const json = (await response.json()) as {
-    items: {
-      value: {
-        id: string;
-        name: string;
-      };
-    }[];
-  };
-
-  return json;
-};
-
 export default function Home() {
-  useEffect(() => {}, []);
+  const { push } = useRouter();
+
+  const redirectToConstituency = async (postcode: string) => {
+    const find = `https://api.postcodes.io/postcodes/${encodeURIComponent(
+      postcode
+    )}`;
+
+    const response = await fetch(find);
+
+    const {
+      result: { parliamentary_constituency },
+    } = (await response.json()) as {
+      result: {
+        parliamentary_constituency: string;
+      };
+    };
+
+    await push(`/constituency/${kebabCase(parliamentary_constituency)}`);
+  };
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
