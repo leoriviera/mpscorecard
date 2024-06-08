@@ -1,5 +1,35 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
+interface VoteString {
+  aye: string;
+  noe: string;
+  none: string;
+}
+
+interface Division {
+  divisionId: string;
+  positive: boolean;
+  row: VoteString[];
+}
+
+interface Vote {
+  aye?: string;
+  noe?: string;
+  none?: string;
+}
+
+interface MpVote {
+  division: Division;
+  vote: Vote;
+}
+
+interface MpScorecard {
+  name: string;
+  party: string;
+  constituency: string;
+  mpvote: MpVote[];
+}
+
 export const Scorecard: NextPage = () => {
   // Render scorecard page
   return undefined;
