@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import { useEffect, useRef } from "react";
-import { Scorecard } from "./constituency/[name]";
+import { Scorecard } from "./constituency/[slug]";
 import kebabCase from "lodash.kebabcase";
 import { useRouter } from "next/router";
 
