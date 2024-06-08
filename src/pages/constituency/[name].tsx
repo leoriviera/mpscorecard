@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Image from "next/image";
 
 interface Vote {
   description: string;
@@ -14,7 +15,6 @@ interface MpScorecard {
 }
 
 export const Scorecard: NextPage = () => {
-
   let mpscore: MpScorecard = {
     name: "Keir Starmer",
     party: "Labour",
@@ -25,10 +25,24 @@ export const Scorecard: NextPage = () => {
         grade: "A",
       },
     ],
-    thumbnail: "www.google.com"
+    thumbnail: "www.google.com",
   };
   // Render scorecard page
-  return undefined;
+  return (
+    <>
+      <Image src={mpscore.thumbnail} alt={mpscore.name + " image"}></Image>
+      <h1>Your MP&apos;s 2024 Report Card</h1>
+      <div>
+        <div>Your MP: {mpscore.name}</div>
+        <div>Party: {mpscore.party}</div>
+        <div>Constituency: {mpscore.constituency}</div>
+      </div>
+
+      <h2>How your MP voted on these key issues this year:</h2>
+
+      <div>{mpscore.votes.map((vote) => vote.description)}</div>
+    </>
+  );
 };
 
 // This function gets called at build time
