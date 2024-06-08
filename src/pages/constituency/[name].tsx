@@ -30,25 +30,34 @@ export const Scorecard: NextPage = () => {
   };
   // Render scorecard page
   return (
-    <>
-      <Image
-        src={mpscore.thumbnail}
-        width={50}
-        height={100}
-        alt={mpscore.name + " image"}
-      ></Image>
-      <h1>Your MP&apos;s 2024 Report Card</h1>
-      <div>
-        <div>Your MP: {mpscore.name}</div>
-        <div>Party: {mpscore.party}</div>
-        <div>Constituency: {mpscore.constituency}</div>
+    <div className="max-w-xl mx-auto bg-neutral-100 rounded-lg shadow-md p-6">
+      <div className="flex items-center mb-4">
+        <Image
+          src={mpscore.thumbnail}
+          width={50}
+          height={100}
+          alt={mpscore.name + " image"}
+          className="rounded-full mr-4"
+        />
+        <h1 className="text-2xl font-bold">Your MP&apos;s 2024 Report Card</h1>
       </div>
-
-      <h2>How your MP voted on these key issues this year:</h2>
-
-      <div>{mpscore.votes.map((vote) => vote.description)}</div>
-      <div>{mpscore.votes.map((vote) => vote.grade)}</div>
-    </>
+      <div className="mb-4">
+        <div className="">Your MP: {mpscore.name}</div>
+        <div className="">Party: {mpscore.party}</div>
+        <div className="">Constituency: {mpscore.constituency}</div>
+      </div>
+      <h2 className="text-xl font-bold mb-2">
+        How your MP voted on these key issues this year:
+      </h2>
+      <ul>
+        {mpscore.votes.map((vote, index) => (
+          <li key={index} className="flex items-center mb-2">
+            <span className=" mr-2">{vote.description}:</span>
+            <strong className="text-green-600 font-bold">{vote.grade}</strong>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
