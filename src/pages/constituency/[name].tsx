@@ -1,26 +1,20 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
-interface VoteString {
-  aye: string;
-  noe: string;
-  none: string;
-}
-
-interface Division {
-  divisionId: string;
-  positive: boolean;
-  row: VoteString[];
-}
-
 interface Vote {
   aye?: string;
   noe?: string;
   none?: string;
 }
 
+interface Division {
+  divisionId: string;
+  positive: boolean;
+  row: Vote;
+}
+
 interface MpVote {
   division: Division;
-  vote: Vote;
+  vote: keyof Vote;
 }
 
 interface MpScorecard {
@@ -31,6 +25,21 @@ interface MpScorecard {
 }
 
 export const Scorecard: NextPage = () => {
+  let row: Vote = {
+    aye: "Voted to ban fraking on shale gas bill",
+  };
+
+  let division: Division = {
+    divisionId: "Ban on Fracking for Shale Gas Bill",
+    positive: true,
+    row: row,
+  };
+
+  let mpscore: MpScorecard = {
+    name: "Keir Starmer",
+    party: "Labour",
+    constituency: "Holborn and St Pancras",
+  };
   // Render scorecard page
   return undefined;
 };
