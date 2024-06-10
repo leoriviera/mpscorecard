@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import kebabCase from "lodash.kebabcase";
-
 import constituencies from "../data/constituencies.json";
 import parties from "../data/parties.json";
 import { clsx, getPartyColorClass } from "../utils";
@@ -28,6 +27,14 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
 
   const partyColour =
     partyColours[score.party.name.replace(/\s+/g, "-").toLowerCase()];
+
+  const a =
+    "https://upload.wikimedia.org/wikipedia/commons/e/ed/Eo_circle_green_letter-a.svg";
+  const f =
+    "https://upload.wikimedia.org/wikipedia/commons/7/70/Eo_circle_red_letter-f.svg";
+
+  const minus =
+    "https://upload.wikimedia.org/wikipedia/commons/3/37/Minus%2C_Web_Fundamentals.svg";
 
   const mpProfile = (
     <div className="flex items-center mb-4 p-10">
@@ -61,7 +68,12 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
           className="flex flex-row justify-between text-2xl font-extrabold"
         >
           <span>{vote.description}</span>
-          <strong className="text-green-600 font-bold">{vote.grade}</strong>
+          {vote.grade == "A" ? (
+            <Image src={a} alt="A" width={60} height={60}></Image>
+          ) : (
+            <Image src={f} alt="F" width={60} height={60}></Image>
+          )}
+          {/* <strong className="text-green-600 font-bold">{vote.grade}</strong> */}
         </div>
       ))}
     </div>
@@ -69,24 +81,30 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
 
   const mpAbsences = (
     <div>
-      <p className="text-md font-light font-gray-200">
-        Your MP was absent for votes on
-      </p>
-      {score.absent.map((vote, index) => (
-        <div
-          key={index}
-          className="flex flex-row justify-between text-2xl font-extrabold"
-        >
-          <span className="text-2xl font-extrabold">{vote}</span>
-          <strong className="text-gray-500 font-bold">-</strong>
-        </div>
-      ))}
-      <p className="font-gray-200 italic text-xs">
-        An MP may have been absent for several reasons, including illness or
-        handling constituency business.
-      </p>
+      {score.absent.length ? (
+        <>
+          <p className="text-md font-light font-gray-200">
+            Your MP was absent for votes on
+          </p>
+          {score.absent.map((vote, index) => (
+            <div
+              key={index}
+              className="flex flex-row justify-between text-2xl font-extrabold"
+            >
+              <span className="text-2xl font-extrabold">{vote}</span>
+              {/* <strong className="text-gray-500 font-bold">-</strong> */}
+              <Image src={minus} alt="-" width={60} height={60}></Image>
+            </div>
+          ))}
+          <p className="font-gray-200 italic text-xs">
+            An MP may have been absent for several reasons, including illness or
+            handling constituency business.
+          </p>
+        </>
+      ) : null}
     </div>
   );
+
   const noVote = (
     <div>
       {score.none.length ? (
@@ -100,7 +118,8 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
               className="flex flex-row justify-between text-2xl font-extrabold"
             >
               <span className="text-2xl font-extrabold">{vote}</span>
-              <strong className="text-gray-500 font-bold">-</strong>
+              {/* <strong className="text-gray-500 font-bold">-</strong> */}
+              <Image src={minus} alt="-" width={60} height={60}></Image>
             </div>
           ))}
           <p className="font-gray-200 italic text-xs">
