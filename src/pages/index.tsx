@@ -4,14 +4,9 @@ import { useRouter } from "next/router";
 import { Field, Form, Formik } from "formik";
 import * as yup from "yup";
 
+import { clsx } from "./utils";
+
 const inter = Inter({ subsets: ["latin"] });
-
-const clsx = (...classnames: (string | false | undefined)[]) =>
-  classnames.filter(Boolean).join(" ");
-
-// TODO - add error state to form field
-// empty postcode, invalid postcode
-// regex postcode before checking with postcodes.io?
 
 // TODO - create 404 page, make look more snazzy
 export default function Home() {
@@ -20,14 +15,14 @@ export default function Home() {
   return (
     <main
       className={clsx(
-        "flex-col min-h-screen min-w-full px-6 lg:px-16 content-center bg-gradient-to-br from-yellow-100 via-blue-300 to-red-200",
+        "flex-col min-h-screen min-w-full px-6 lg:px-16 content-center bg-gradient-to-br from-yellow-100 via-red-200 to-blue-300",
         inter.className
       )}>
       <div className='mx-auto'>
-        <h1 className='max-w-2xl text-3xl md:text-6xl font-extrabold mb-4 text-gray-800 uppercase'>
+        <h1 className='max-w-2xl text-3xl sm:text-6xl font-extrabold mb-4 text-gray-800 uppercase'>
           How did your MP vote over the last Parliament?
         </h1>
-        <h2 className='max-w-xl mb-8 text-xl md:text-4xl text-gray-600 uppercase font-bold'>
+        <h2 className='max-w-xl mb-8 text-xl sm:text-4xl text-gray-600 uppercase font-bold'>
           Enter your postcode to get their scorecard.
         </h2>
       </div>
@@ -82,7 +77,7 @@ export default function Home() {
             <Form>
               <label
                 htmlFor='postcode'
-                className='text-md md:text-2xl text-gray-700 uppercase font-light'>
+                className='text-md sm:text-2xl text-gray-700 uppercase font-light'>
                 Your postcode
               </label>
               <div className='flex mt-2'>
@@ -105,6 +100,21 @@ export default function Home() {
             </Form>
           )}
         </Formik>
+        <p className='mt-2 font-extralight font-gray-200'>
+          This website uses data from{" "}
+          <a href='https://theyworkforyou.com' className='underline'>
+            TheyWorkForYou
+          </a>
+          ,{" "}
+          <a href='https://developer.parliament.uk' className='underline'>
+            the UK Parliament API
+          </a>{" "}
+          and{" "}
+          <a href='https://postcodes.io' className='underline'>
+            Postcodes.io
+          </a>
+          .
+        </p>
       </div>
     </main>
   );
