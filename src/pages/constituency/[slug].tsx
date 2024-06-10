@@ -4,7 +4,7 @@ import kebabCase from "lodash.kebabcase";
 
 import constituencies from "../data/constituencies.json";
 import parties from "../data/parties.json";
-import { clsx } from "../utils";
+import { clsx, getPartyColorClass } from "../utils";
 
 interface Vote {
   description: string;
@@ -21,62 +21,87 @@ interface MPScorecard {
   thumbnail: string;
 }
 
+const partyColours = getPartyColorClass(parties);
+
 export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
   // Render scorecard page
+
+  const partyColour =
+    partyColours[score.party.name.replace(/\s+/g, "-").toLowerCase()];
 
   return (
     // ea1d0e
     <div
       className={clsx(
         "min-h-screen min-w-full content-center bg-gradient-to-br from-neutral-200 px-6 lg:px-16",
-        score.party.colour
-      )}>
-      <div className='flex flex-col p-6 lg:p-10 bg-neutral-200 max-w-3xl rounded-md border-4 border-neutral-200'>
-        <div className='flex items-center mb-4'>
+        score.party.partyGradient
+      )}
+    >
+      <div className="flex flex-col p-6 lg:p-10 bg-neutral-200 max-w-3xl rounded-md border-4 border-neutral-200">
+        <h1 className="text-5xl font-bold text-right">Scorecard</h1>
+        <div className="flex items-center mb-4 p-10">
           <Image
             src={score.thumbnail}
             width={160}
             height={160}
             alt={score.name}
-            className='object-cover object-top w-40 h-40 rounded-full mr-4'
+            className="object-cover object-center w-40 h-40 rounded-full"
           />
-          <div>
-            <h1 className='text-5xl font-bold'>Scorecard for</h1>
-            <p className='font-extrabold text-3xl'>{score.name}</p>
-            <p className='font-bold text-xl'>{score.party.name}</p>
-            <p className='font-semibold text-xl'>
+          <div className="pl-14">
+            <p className="font-extrabold text-3xl">{score.name}</p>
+            <p className={`font-bold text-xl ${partyColour}`}>
+              {score.party.name}
+            </p>
+            <p className="font-semibold text-l">
               Member of Parliament for {score.constituency}
             </p>
           </div>
         </div>
 
-        <div className='space-y-2'>
-          <h2 className='text-3xl font-medium'>
+        <div className="space-y-2">
+          <h2 className="text-3xl font-medium text-center">
             During the last Parliament, your MP voted
           </h2>
-
+          <div className="border-t border-black"></div>
           {score.votes.map((vote, index) => (
             <div
               key={index}
-              className='flex flex-row justify-between text-2xl font-extrabold'>
+              className="flex flex-row justify-between text-2xl font-extrabold"
+            >
               <span>{vote.description}</span>
-              <strong className='text-green-600 font-bold'>{vote.grade}</strong>
+              <strong className="text-green-600 font-bold">{vote.grade}</strong>
             </div>
           ))}
         </div>
-        <div className='mt-4 space-y-2'>
-          <p className='text-md font-light font-gray-200 italic'>
-            Your MP was absent for votes on outlawing ding-dong-ditch, closing
-            every Tesco, removing the cap on bankers&apos; bonuses and removing
-            Scunthorpe from the United Kingdom. An MP may have been absent for
-            several reasons, including illness or handling constituency
-            business.
+        <div className="mt-4 space-y-2">
+          <p className="text-md font-light font-gray-200 italic">
+            Your MP was absent for votes on
           </p>
-          <p className='text-md font-light font-gray-200 italic'>
+          {score.absent.map((vote, index) => (
+            <div
+              key={index}
+              className="text-md font-light font-gray-200 italic"
+            >
+              {vote}
+            </div>
+          ))}
+          <p>
+            An MP may have been absent for several reasons, including illness or
+            handling constituency business.
+          </p>
+          <p className="text-md font-light font-gray-200 italic">
             Your MP couldn&apos;t vote on potato theft, children in mines or
-            supermarket profiteering, as they weren&apos;t an MP when the vote
-            was held.
+            supermarket profiteering,
           </p>
+          {score.none.map((vote, index) => (
+            <div
+              key={index}
+              className="text-md font-light font-gray-200 italic"
+            >
+              {vote}
+            </div>
+          ))}
+          <p>as they weren&apos;t an MP when the vote was held.</p>
         </div>
       </div>
     </div>
@@ -118,7 +143,7 @@ export const getStaticProps: GetStaticProps<
 
   // const constituencyInfo = constituencies[slug];
 
-  const party = parties["labour"];
+  const party = parties["conservative"];
 
   // By returning { props: { posts } }, the Scorecard component
   // will receive `posts` as a prop at build time

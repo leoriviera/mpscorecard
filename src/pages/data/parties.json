@@ -1,25 +1,75 @@
 {
-  "labour": { "name": "Labour", "colour": "to-red-200" },
-  "conservative": { "name": "Conservative", "colour": "to-blue-300" },
-  "independent": { "name": "Independent", "colour": "to-neutral-400" },
-  "reform-uk": { "name": "Reform UK", "colour": "to-sky-200" },
+  "labour": {
+    "name": "Labour",
+    "partyColor": "red-800",
+    "partyGradient": "to-red-200"
+  },
+  "conservative": {
+    "name": "Conservative",
+    "partyColor": "blue-800",
+    "partyGradient": "to-blue-300"
+  },
+  "independent": {
+    "name": "Independent",
+    "partyColor": "neutral-800",
+    "partyGradient": "to-neutral-400"
+  },
+  "reform-uk": {
+    "name": "Reform UK",
+    "partyColor": "sky-800",
+    "partyGradient": "to-sky-200"
+  },
   "scottish-national-party": {
     "name": "Scottish National Party",
-    "colour": ""
+    "partyColor": "yellow-800",
+    "partyGradient": ""
   },
-  "sinn-fein": { "name": "Sinn Féin", "colour": "" },
-  "reclaim": { "name": "Reclaim", "colour": "to-blue-900" },
-  "dup": { "name": "DUP", "colour": "" },
-  "liberal-democrat": { "name": "Liberal Democrat", "colour": "to-amber-500" },
-  "labour-co-operative": { "name": "Labour/Co-operative", "colour": "" },
+  "sinn-fein": {
+    "name": "Sinn Féin",
+    "partyColor": "green-800",
+    "partyGradient": ""
+  },
+  "reclaim": {
+    "name": "Reclaim",
+    "partyColor": "blue-900",
+    "partyGradient": "to-blue-900"
+  },
+  "dup": { "name": "DUP", "partyColor": "orange-300", "partyGradient": "" },
+  "liberal-democrat": {
+    "name": "Liberal Democrat",
+    "partyColor": "amber-500",
+    "partyGradient": "to-amber-500"
+  },
+  "labour-co-operative": {
+    "name": "Labour/Co-operative",
+    "partyColor": "red-800",
+    "partyGradient": ""
+  },
   "social-democratic-and-labour-party": {
     "name": "Social Democratic and Labour Party",
-    "colour": ""
+    "partyColor": "pink-800",
+    "partyGradient": ""
   },
-  "alliance": { "name": "Alliance", "colour": "" },
-  "workers-party": { "name": "Workers Party", "colour": "" },
-  "alba": { "name": "Alba", "colour": "" },
-  "speaker": { "name": "Speaker", "colour": "to-black to-90%" },
-  "plaid-cymru": { "name": "Plaid Cymru", "colour": "" },
-  "green": { "name": "Green", "colour": "" }
+  "alliance": {
+    "name": "Alliance",
+    "partyColor": "purple-800",
+    "partyGradient": ""
+  },
+  "workers-party": {
+    "name": "Workers Party",
+    "partyColor": "indigo-800",
+    "partyGradient": ""
+  },
+  "alba": { "name": "Alba", "partyColor": "lime-300", "partyGradient": "" },
+  "speaker": {
+    "name": "Speaker",
+    "partyColor": "black",
+    "partyGradient": "to-black to-90%"
+  },
+  "plaid-cymru": {
+    "name": "Plaid Cymru",
+    "partyColor": "teal-800",
+    "partyGradient": ""
+  },
+  "green": { "name": "Green", "partyColor": "emerald-800", "partyGradient": "" }
 }
