@@ -4,10 +4,7 @@
     "constituency": "Hackney North and Stoke Newington",
     "member": {
       "name": "Diane Abbott",
-      "party": {
-        "name": "Labour",
-        "colour": "ea1d0e"
-      },
+      "party": "labour",
       "divisions": {
         "116": {
           "vote": "aye",

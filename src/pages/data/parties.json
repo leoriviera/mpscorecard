@@ -1,0 +1,25 @@
+{
+  "labour": { "name": "Labour", "colour": "to-red-200" },
+  "conservative": { "name": "Conservative", "colour": "to-blue-300" },
+  "independent": { "name": "Independent", "colour": "to-neutral-400" },
+  "reform-uk": { "name": "Reform UK", "colour": "to-sky-200" },
+  "scottish-national-party": {
+    "name": "Scottish National Party",
+    "colour": ""
+  },
+  "sinn-fein": { "name": "Sinn Féin", "colour": "" },
+  "reclaim": { "name": "Reclaim", "colour": "to-blue-900" },
+  "dup": { "name": "DUP", "colour": "" },
+  "liberal-democrat": { "name": "Liberal Democrat", "colour": "to-amber-500" },
+  "labour-co-operative": { "name": "Labour/Co-operative", "colour": "" },
+  "social-democratic-and-labour-party": {
+    "name": "Social Democratic and Labour Party",
+    "colour": ""
+  },
+  "alliance": { "name": "Alliance", "colour": "" },
+  "workers-party": { "name": "Workers Party", "colour": "" },
+  "alba": { "name": "Alba", "colour": "" },
+  "speaker": { "name": "Speaker", "colour": "to-black to-90%" },
+  "plaid-cymru": { "name": "Plaid Cymru", "colour": "" },
+  "green": { "name": "Green", "colour": "" }
+}
