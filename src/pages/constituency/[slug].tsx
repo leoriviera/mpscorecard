@@ -29,21 +29,21 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
     partyColours[score.party.name.replace(/\s+/g, "-").toLowerCase()];
 
   const a =
-    "https://upload.wikimedia.org/wikipedia/commons/e/ed/Eo_circle_green_letter-a.svg";
+    "https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg";
   const f =
-    "https://upload.wikimedia.org/wikipedia/commons/7/70/Eo_circle_red_letter-f.svg";
+    "https://upload.wikimedia.org/wikipedia/commons/8/8f/Flat_cross_icon.svg";
 
   const minus =
     "https://upload.wikimedia.org/wikipedia/commons/3/37/Minus%2C_Web_Fundamentals.svg";
 
   const mpProfile = (
-    <div className="flex items-center mb-4 p-10">
+    <div className="flex items-center mb-4 p-1">
       <Image
         src={score.thumbnail}
         width={160}
         height={160}
         alt={score.name}
-        className="object-cover object-center w-40 h-40 rounded-full"
+        className="object-cover object-center w-40 h-40 rounded-full border-black border-2"
       />
       <div className="pl-14">
         <p className="font-extrabold text-3xl">{score.name}</p>
@@ -65,15 +65,14 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
       {score.votes.map((vote, index) => (
         <div
           key={index}
-          className="flex flex-row justify-between text-2xl font-extrabold"
+          className="flex flex-row justify-between text-2xl font-extrabold items-center"
         >
-          <span>{vote.description}</span>
+          <span className="">{vote.description}</span>
           {vote.grade == "A" ? (
             <Image src={a} alt="A" width={60} height={60}></Image>
           ) : (
             <Image src={f} alt="F" width={60} height={60}></Image>
           )}
-          {/* <strong className="text-green-600 font-bold">{vote.grade}</strong> */}
         </div>
       ))}
     </div>
@@ -83,48 +82,15 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
     <div>
       {score.absent.length ? (
         <>
-          <p className="text-md font-light font-gray-200">
-            Your MP was absent for votes on
-          </p>
           {score.absent.map((vote, index) => (
             <div
               key={index}
-              className="flex flex-row justify-between text-2xl font-extrabold"
+              className="flex flex-row justify-between text-2xl font-extrabold items-center"
             >
-              <span className="text-2xl font-extrabold">{vote}</span>
-              {/* <strong className="text-gray-500 font-bold">-</strong> */}
+              <span className="text-2xl font-extrabold">{vote}*</span>
               <Image src={minus} alt="-" width={60} height={60}></Image>
             </div>
           ))}
-          <p className="font-gray-200 italic text-xs">
-            An MP may have been absent for several reasons, including illness or
-            handling constituency business.
-          </p>
-        </>
-      ) : null}
-    </div>
-  );
-
-  const noVote = (
-    <div>
-      {score.none.length ? (
-        <>
-          <p className="text-md font-light font-gray-200">
-            Your MP couldn&apos;t vote on
-          </p>
-          {score.none.map((vote, index) => (
-            <div
-              key={index}
-              className="flex flex-row justify-between text-2xl font-extrabold"
-            >
-              <span className="text-2xl font-extrabold">{vote}</span>
-              {/* <strong className="text-gray-500 font-bold">-</strong> */}
-              <Image src={minus} alt="-" width={60} height={60}></Image>
-            </div>
-          ))}
-          <p className="font-gray-200 italic text-xs">
-            as they weren&apos;t an MP when the vote was held.
-          </p>
         </>
       ) : null}
     </div>
@@ -137,16 +103,17 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
         score.party.partyGradient
       )}
     >
-      <div className="flex flex-col p-6 lg:p-10 bg-neutral-200 max-w-3xl rounded-md border-4 border-neutral-200">
-        <h1 className="text-5xl font-bold text-right">Scorecard</h1>
+      <div className="flex flex-col p-6 lg:p-10 bg-neutral-200 max-w-3xl rounded-md border-2 border-black">
         {mpProfile}
-
         {mpVotes}
-
-        <div className="mt-4 space-y-2">
-          {mpAbsences}
-          {noVote}
-        </div>
+        {mpAbsences}
+        <p className="text-md font-light font-gray-200">
+          *Your MP was absent for these votes
+        </p>
+        <p className="font-gray-200 text-xs">
+          An MP may have been absent for several reasons, including illness or
+          handling constituency business.
+        </p>
       </div>
     </div>
   );
@@ -187,7 +154,7 @@ export const getStaticProps: GetStaticProps<
 
   // const constituencyInfo = constituencies[slug];
 
-  const party = parties["conservative"];
+  const party = parties["labour"];
 
   // By returning { props: { posts } }, the Scorecard component
   // will receive `posts` as a prop at build time
