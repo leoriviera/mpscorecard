@@ -48,15 +48,14 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
       <div className="pl-14">
         <p className="font-extrabold text-3xl">{score.name}</p>
         <p className={`font-bold text-xl ${partyColour}`}>{score.party.name}</p>
-        <p className="font-semibold text-l">
-          Member of Parliament for {score.constituency}
-        </p>
+        <p className="font-semibold text-l">{score.constituency}</p>
       </div>
+      <div className="ml-auto mb-auto text-2xl font-bold">Scorecard</div>
     </div>
   );
 
   const mpVotes = (
-    <div className="space-y-2">
+    <div className="space-y-5">
       <h2 className="text-3xl font-medium text-center">
         During the last Parliament, your MP voted
       </h2>
@@ -75,11 +74,7 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
           )}
         </div>
       ))}
-    </div>
-  );
 
-  const mpAbsences = (
-    <div>
       {score.absent.length ? (
         <>
           {score.absent.map((vote, index) => (
@@ -88,7 +83,7 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
               className="flex flex-row justify-between text-2xl font-extrabold items-center"
             >
               <span className="text-2xl font-extrabold">{vote}*</span>
-              <Image src={minus} alt="-" width={60} height={60}></Image>
+              <Image src={minus} alt="-" width={60} height={50}></Image>
             </div>
           ))}
         </>
@@ -106,7 +101,7 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
       <div className="flex flex-col p-6 lg:p-10 bg-neutral-200 max-w-3xl rounded-md border-2 border-black">
         {mpProfile}
         {mpVotes}
-        {mpAbsences}
+
         <p className="text-md font-light font-gray-200">
           *Your MP was absent for these votes
         </p>
