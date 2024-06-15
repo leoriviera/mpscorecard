@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { Field, Form, Formik } from "formik";
 import * as yup from "yup";
 
-import { clsx } from "./utils";
+import { clsx } from "../utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
