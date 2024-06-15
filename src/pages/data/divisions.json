@@ -1,0 +1,101 @@
+{
+  "1525": {
+    "noe": {
+      "description": "voted for requiring water companies to reduce sewage discharge into British rivers and seas"
+    },
+    "aye": {
+      "description": "voted against requiring water companies to reduce sewage discharge into British rivers and seas"
+    },
+    "absent": {
+      "description": "didn't vote on requiring water companies to reduce sewage discharge into British rivers and seas"
+    }
+  },
+  "1574": {
+    "aye": {
+      "description": "voted for cracking down on puppy smuggling and dog thefts, and banning the live exports of farm animals"
+    },
+    "noe": {
+      "description": "voted against cracking down on puppy smuggling and dog thefts, and banning the live exports of farm animals"
+    },
+    "absent": {
+      "description": "didn't vote on requiring water companies to reduce sewage discharge into British rivers and seas"
+    }
+  },
+  "1372": {
+    "aye": {
+      "description": "voted for a fracking ban"
+    },
+    "noe": {
+      "description": "voted against a fracking ban"
+    },
+    "absent": {
+      "description": "didn't vote on a fracking ban"
+    }
+  },
+  "1630": {
+    "aye": {
+      "description": "voted for releasing the list of schools affected by RAAC concrete"
+    },
+    "noe": {
+      "description": "initially voted against releasing the list of schools affected by RAAC concrete"
+    },
+    "absent": {
+      "description": "didn't vote on releasing the list of schools affected by RAAC concrete"
+    }
+  },
+  "1307": {
+    "aye": {
+      "description": "consistently voted for a windfall tax on energy companies"
+    },
+    "noe": {
+      "description": "initially voted against a windfall tax on energy companies"
+    },
+    "absent": {
+      "description": "didn't vote on a windfall tax on energy companies"
+    }
+  },
+  "1698": {
+    "aye": {
+      "description": "voted to fix the crisis in NHS dentistry"
+    },
+    "noe": {
+      "description": "voted against fixing the crisis in NHS dentistry"
+    },
+    "absent": {
+      "description": "didn't vote on fixing the crisis in NHS dentistry"
+    }
+  },
+  "1814": {
+    "aye": {
+      "description": "voted for excluding MPs who had been arrested on suspicion of a serious sexual offence from the House of Commons"
+    },
+    "noe": {
+      "description": "voted against excluding MPs who had been arrested on suspicion of a serious sexual offence from the House of Commons"
+    },
+    "absent": {
+      "description": "didn't vote on excluding MPs who had been arrested on suspicion of a serious sexual offence from the House of Commons"
+    }
+  },
+  "1816": {
+    "aye": {
+      "description": "voted for outlawing ninja swords"
+    },
+    "noe": {
+      "description": "voted against outlawing ninja swords"
+    },
+    "absent": {
+      "description": "didn't vote on outlawing ninja swords"
+    }
+  },
+  "1738": {
+    "aye": {
+      "description": "voted for reforming ministerial severance payments"
+    },
+    "noe": {
+      "description": "voted against reforming ministerial severance payments"
+    },
+    "absent": {
+      "description": "didn't vote on reforming ministerial severance payments"
+    }
+  }
+}
