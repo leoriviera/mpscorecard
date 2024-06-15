@@ -20,14 +20,8 @@ interface MPScorecard {
   thumbnail: string;
 }
 
-const partyColours = getPartyColorClass(parties);
-
 export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
   // Render scorecard page
-
-  const partyColour =
-    partyColours[score.party.name.replace(/\s+/g, "-").toLowerCase()];
-
   const a =
     "https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg";
   const f =
@@ -37,40 +31,41 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
     "https://upload.wikimedia.org/wikipedia/commons/3/37/Minus%2C_Web_Fundamentals.svg";
 
   const mpProfile = (
-    <div className="flex items-center mb-4 p-1">
+    <div className='flex items-center mb-4 p-1'>
       <Image
         src={score.thumbnail}
         width={160}
         height={160}
         alt={score.name}
-        className="object-cover object-center w-40 h-40 rounded-full border-black border-2"
+        className='object-cover object-center w-40 h-40 rounded-full border-black border-2'
       />
-      <div className="pl-14">
-        <p className="font-extrabold text-3xl">{score.name}</p>
-        <p className={`font-bold text-xl ${partyColour}`}>{score.party.name}</p>
-        <p className="font-semibold text-l">{score.constituency}</p>
+      <div className='pl-14'>
+        <p className='font-extrabold text-3xl'>{score.name}</p>
+        <p className={`font-bold text-xl ${score.party.colour}`}>
+          {score.party.name}
+        </p>
+        <p className='font-semibold text-l'>{score.constituency}</p>
       </div>
-      <div className="ml-auto mb-auto text-2xl font-bold">Scorecard</div>
+      <div className='ml-auto mb-auto text-2xl font-bold'>Scorecard</div>
     </div>
   );
 
   const mpVotes = (
-    <div className="space-y-5">
-      <h2 className="text-3xl font-medium text-center">
+    <div className='space-y-5'>
+      <h2 className='text-3xl font-medium'>
         During the last Parliament, your MP voted
       </h2>
-      <div className="border-t border-black"></div>
+      <div className='border-t border-black'></div>
 
       {score.votes.map((vote, index) => (
         <div
           key={index}
-          className="flex flex-row justify-between text-2xl font-extrabold items-center"
-        >
-          <span className="">{vote.description}</span>
+          className='flex flex-row justify-between text-2xl font-extrabold items-center'>
+          <span className=''>{vote.description}</span>
           {vote.grade == "A" ? (
-            <Image src={a} alt="A" width={60} height={60}></Image>
+            <Image src={a} alt='positive vote' width={60} height={60}></Image>
           ) : (
-            <Image src={f} alt="F" width={60} height={60}></Image>
+            <Image src={f} alt='negative vote' width={60} height={60}></Image>
           )}
         </div>
       ))}
@@ -80,10 +75,9 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
           {score.absent.map((vote, index) => (
             <div
               key={index}
-              className="flex flex-row justify-between text-2xl font-extrabold items-center"
-            >
-              <span className="text-2xl font-extrabold">{vote}*</span>
-              <Image src={minus} alt="-" width={60} height={50}></Image>
+              className='flex flex-row justify-between text-2xl font-extrabold items-center'>
+              <span className='text-2xl font-extrabold'>{vote}*</span>
+              <Image src={minus} alt='-' width={60} height={50}></Image>
             </div>
           ))}
         </>
@@ -95,17 +89,16 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
     <div
       className={clsx(
         "min-h-screen min-w-full content-center bg-gradient-to-br from-neutral-200 px-6 lg:px-16",
-        score.party.partyGradient
-      )}
-    >
-      <div className="flex flex-col p-6 lg:p-10 bg-neutral-200 max-w-3xl rounded-md border-2 border-black">
+        score.party.gradient
+      )}>
+      <div className='flex flex-col p-6 lg:p-10 bg-neutral-100 max-w-3xl rounded-md border-2 border-black'>
         {mpProfile}
         {mpVotes}
 
-        <p className="text-md font-light font-gray-200">
+        <p className='text-md font-light font-gray-200'>
           *Your MP was absent for these votes
         </p>
-        <p className="font-gray-200 text-xs">
+        <p className='font-gray-200 text-xs'>
           An MP may have been absent for several reasons, including illness or
           handling constituency business.
         </p>
