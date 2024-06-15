@@ -19,11 +19,11 @@ export default function Home() {
         inter.className
       )}>
       <div className='mx-auto'>
-        <h1 className='max-w-2xl text-3xl sm:text-6xl font-extrabold mb-4 text-gray-800 uppercase'>
+        <h1 className='max-w-2xl mb-4 text-3xl font-extrabold text-gray-800 uppercase sm:text-6xl'>
           How did your MP vote over the last Parliament?
         </h1>
-        <h2 className='max-w-xl mb-8 text-xl sm:text-4xl text-gray-600 uppercase font-bold'>
-          Enter your postcode to get their scorecard.
+        <h2 className='max-w-xl mb-8 text-xl font-bold text-gray-600 uppercase sm:text-4xl'>
+          Enter your postcode to see their scorecard.
         </h2>
       </div>
 
@@ -77,7 +77,7 @@ export default function Home() {
             <Form>
               <label
                 htmlFor='postcode'
-                className='text-md sm:text-2xl text-gray-700 uppercase font-light'>
+                className='font-light text-gray-700 uppercase text-md sm:text-2xl'>
                 Your postcode
               </label>
               <div className='flex mt-2'>
@@ -86,11 +86,11 @@ export default function Home() {
                   id='postcode'
                   name='postcode'
                   placeholder='SW1A 2AA'
-                  className='px-2 md:px-4 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                  className='px-2 border border-gray-300 md:px-4 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500'
                 />
                 <button
                   type='submit'
-                  className='text-sm md:text-base h-full px-3 md:px-4 py-3 bg-red-600 text-white font-bold rounded-r-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500'>
+                  className='h-full px-3 py-3 text-sm font-bold text-white bg-red-600 md:text-base md:px-4 rounded-r-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500'>
                   Submit
                 </button>
               </div>
