@@ -1,75 +1,87 @@
 {
   "labour": {
     "name": "Labour",
-    "partyColor": "red-800",
-    "partyGradient": "to-red-200"
+    "colour": "text-red-800",
+    "gradient": "to-red-200"
   },
   "conservative": {
     "name": "Conservative",
-    "partyColor": "blue-800",
-    "partyGradient": "to-blue-300"
+    "colour": "text-blue-800",
+    "gradient": "to-blue-300"
   },
   "independent": {
     "name": "Independent",
-    "partyColor": "neutral-800",
-    "partyGradient": "to-neutral-400"
+    "colour": "text-neutral-800",
+    "gradient": "to-neutral-400"
   },
   "reform-uk": {
     "name": "Reform UK",
-    "partyColor": "sky-800",
-    "partyGradient": "to-sky-200"
+    "colour": "text-sky-600",
+    "gradient": "to-sky-200"
   },
   "scottish-national-party": {
     "name": "Scottish National Party",
-    "partyColor": "yellow-800",
-    "partyGradient": ""
+    "colour": "text-yellow-700",
+    "gradient": "to-yellow-300"
   },
   "sinn-fein": {
     "name": "Sinn Féin",
-    "partyColor": "green-800",
-    "partyGradient": ""
+    "colour": "text-green-600",
+    "gradient": "to-green-300"
   },
   "reclaim": {
     "name": "Reclaim",
-    "partyColor": "blue-900",
-    "partyGradient": "to-blue-900"
+    "colour": "text-blue-900",
+    "gradient": "to-blue-900"
   },
-  "dup": { "name": "DUP", "partyColor": "orange-300", "partyGradient": "" },
+  "dup": {
+    "name": "DUP",
+    "colour": "text-orange-700",
+    "gradient": "to-orange-900"
+  },
   "liberal-democrat": {
     "name": "Liberal Democrat",
-    "partyColor": "amber-500",
-    "partyGradient": "to-amber-500"
+    "colour": "text-amber-700",
+    "gradient": "to-amber-400"
   },
   "labour-co-operative": {
     "name": "Labour/Co-operative",
-    "partyColor": "red-800",
-    "partyGradient": ""
+    "colour": "text-red-800",
+    "gradient": "to-red-200"
   },
   "social-democratic-and-labour-party": {
     "name": "Social Democratic and Labour Party",
-    "partyColor": "pink-800",
-    "partyGradient": ""
+    "colour": "text-green-800",
+    "gradient": "to-green-400"
   },
   "alliance": {
     "name": "Alliance",
-    "partyColor": "purple-800",
-    "partyGradient": ""
+    "colour": "text-amber-700",
+    "gradient": "to-amber-400"
   },
   "workers-party": {
-    "name": "Workers Party",
-    "partyColor": "indigo-800",
-    "partyGradient": ""
+    "name": "Workers Party of Britain",
+    "colour": "text-indigo-800",
+    "gradient": "to-indigo-300"
   },
-  "alba": { "name": "Alba", "partyColor": "lime-300", "partyGradient": "" },
+  "alba": {
+    "name": "Alba",
+    "colour": "text-blue-600",
+    "gradient": "to-blue-800"
+  },
   "speaker": {
     "name": "Speaker",
-    "partyColor": "black",
-    "partyGradient": "to-black to-90%"
+    "colour": "text-black",
+    "gradient": "to-black to-90%"
   },
   "plaid-cymru": {
     "name": "Plaid Cymru",
-    "partyColor": "teal-800",
-    "partyGradient": ""
+    "colour": "text-teal-800",
+    "gradient": "to-teal-300"
   },
-  "green": { "name": "Green", "partyColor": "emerald-800", "partyGradient": "" }
+  "green": {
+    "name": "Green",
+    "colour": "text-emerald-600",
+    "gradient": "to-emerald-300"
+  }
 }
