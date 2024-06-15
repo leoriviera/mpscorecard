@@ -6,7 +6,7 @@
     "aye": {
       "description": "voted against requiring water companies to reduce sewage discharge into British rivers and seas"
     },
-    "absent": {
+    "notRecorded": {
       "description": "didn't vote on requiring water companies to reduce sewage discharge into British rivers and seas"
     }
   },
@@ -17,7 +17,7 @@
     "noe": {
       "description": "voted against cracking down on puppy smuggling and dog thefts, and banning the live exports of farm animals"
     },
-    "absent": {
+    "notRecorded": {
       "description": "didn't vote on requiring water companies to reduce sewage discharge into British rivers and seas"
     }
   },
@@ -28,7 +28,7 @@
     "noe": {
       "description": "voted against a fracking ban"
     },
-    "absent": {
+    "notRecorded": {
       "description": "didn't vote on a fracking ban"
     }
   },
@@ -39,7 +39,7 @@
     "noe": {
       "description": "initially voted against releasing the list of schools affected by RAAC concrete"
     },
-    "absent": {
+    "notRecorded": {
       "description": "didn't vote on releasing the list of schools affected by RAAC concrete"
     }
   },
@@ -50,7 +50,7 @@
     "noe": {
       "description": "initially voted against a windfall tax on energy companies"
     },
-    "absent": {
+    "notRecorded": {
       "description": "didn't vote on a windfall tax on energy companies"
     }
   },
@@ -61,7 +61,7 @@
     "noe": {
       "description": "voted against fixing the crisis in NHS dentistry"
     },
-    "absent": {
+    "notRecorded": {
       "description": "didn't vote on fixing the crisis in NHS dentistry"
     }
   },
@@ -72,7 +72,7 @@
     "noe": {
       "description": "voted against excluding MPs who had been arrested on suspicion of a serious sexual offence from the House of Commons"
     },
-    "absent": {
+    "notRecorded": {
       "description": "didn't vote on excluding MPs who had been arrested on suspicion of a serious sexual offence from the House of Commons"
     }
   },
@@ -83,7 +83,7 @@
     "noe": {
       "description": "voted against outlawing ninja swords"
     },
-    "absent": {
+    "notRecorded": {
       "description": "didn't vote on outlawing ninja swords"
     }
   },
@@ -94,7 +94,7 @@
     "noe": {
       "description": "voted against reforming ministerial severance payments"
     },
-    "absent": {
+    "notRecorded": {
       "description": "didn't vote on reforming ministerial severance payments"
     }
   }
