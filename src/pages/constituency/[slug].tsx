@@ -4,6 +4,11 @@ import kebabCase from "lodash.kebabcase";
 import constituencies from "../data/constituencies.json";
 import parties from "../data/parties.json";
 import { clsx, getPartyColorClass } from "../utils";
+import {
+  CheckCircleIcon,
+  XCircleIcon,
+  QuestionMarkCircleIcon,
+} from "@heroicons/react/24/solid";
 
 interface Vote {
   description: string;
@@ -21,12 +26,6 @@ interface MPScorecard {
 }
 
 export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
-  // Render scorecard page
-  const a =
-    "https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg";
-  const f =
-    "https://upload.wikimedia.org/wikipedia/commons/8/8f/Flat_cross_icon.svg";
-
   const minus =
     "https://upload.wikimedia.org/wikipedia/commons/3/37/Minus%2C_Web_Fundamentals.svg";
 
@@ -37,35 +36,35 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
         width={160}
         height={160}
         alt={score.name}
-        className='object-cover object-center w-40 h-40 rounded-full border-black border-2'
+        className='object-cover object-top w-40 h-40 rounded-full border-black border-2'
       />
-      <div className='pl-14'>
-        <p className='font-extrabold text-3xl'>{score.name}</p>
-        <p className={`font-bold text-xl ${score.party.colour}`}>
+      <div className='pl-10'>
+        <p className='font-extrabold text-4xl'>{score.name}</p>
+        <p className={`font-bold text-2xl ${score.party.colour}`}>
           {score.party.name}
         </p>
-        <p className='font-semibold text-l'>{score.constituency}</p>
+        <p className='font-semibold text-xl'>MP for {score.constituency}</p>
       </div>
       <div className='ml-auto mb-auto text-2xl font-bold'>Scorecard</div>
     </div>
   );
 
   const mpVotes = (
-    <div className='space-y-5'>
-      <h2 className='text-3xl font-medium'>
-        During the last Parliament, your MP voted
+    <div className='space-y-2'>
+      <h2 className='text-2xl font-bold'>
+        During the last Parliament, your MP...
       </h2>
       <div className='border-t border-black'></div>
 
       {score.votes.map((vote, index) => (
         <div
           key={index}
-          className='flex flex-row justify-between text-2xl font-extrabold items-center'>
-          <span className=''>{vote.description}</span>
+          className='flex flex-row justify-between items-center space-x-2'>
+          <span className='font-medium text-2xl'>{vote.description}</span>
           {vote.grade == "A" ? (
-            <Image src={a} alt='positive vote' width={60} height={60}></Image>
+            <CheckCircleIcon className='h-16 w-16 text-green-500 shrink-0' />
           ) : (
-            <Image src={f} alt='negative vote' width={60} height={60}></Image>
+            <XCircleIcon className='h-16 w-16 text-red-500 shrink-0' />
           )}
         </div>
       ))}
@@ -75,11 +74,23 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
           {score.absent.map((vote, index) => (
             <div
               key={index}
-              className='flex flex-row justify-between text-2xl font-extrabold items-center'>
-              <span className='text-2xl font-extrabold'>{vote}*</span>
-              <Image src={minus} alt='-' width={60} height={50}></Image>
+              className='flex flex-row justify-between items-center space-x-2'>
+              <span className='text-2xl font-medium'>{vote}</span>
+              <QuestionMarkCircleIcon className='h-16 w-16 text-yellow-500 shrink-0' />
             </div>
           ))}
+
+          <div className='mt-4'>
+            <p className='text-md font-light font-gray-200'>
+              The{" "}
+              <span className='text-yellow-700 font-bold'>
+                yellow question mark icon
+              </span>{" "}
+              means no vote was recorded for your MP. An MP may have no vote
+              recorded for several reasons, including abstaining from a vote,
+              illness or carrying out constituency or ministerial business.
+            </p>
+          </div>
         </>
       ) : null}
     </div>
@@ -94,14 +105,6 @@ export const Scorecard: NextPage<{ score: MPScorecard }> = ({ score }) => {
       <div className='flex flex-col p-6 lg:p-10 bg-neutral-100 max-w-3xl rounded-md border-2 border-black'>
         {mpProfile}
         {mpVotes}
-
-        <p className='text-md font-light font-gray-200'>
-          *Your MP was absent for these votes
-        </p>
-        <p className='font-gray-200 text-xs'>
-          An MP may have been absent for several reasons, including illness or
-          handling constituency business.
-        </p>
       </div>
     </div>
   );
@@ -154,20 +157,22 @@ export const getStaticProps: GetStaticProps<
         constituency: "Holborn and St Pancras",
         votes: [
           {
-            description: "against puppy murder",
+            description: "voted against puppy murder",
             grade: "A",
           },
           {
-            description: "for world peace",
+            description: "voted for world peace",
             grade: "A",
           },
           {
-            description: "for fracking",
+            description:
+              "voted against cracking down on puppy smuggling and dog thefts",
             grade: "F",
           },
         ],
-        absent: ["conversion therapy", "breaking mafioso knees"],
-        none: ["playing music on public buses"],
+        absent: [
+          "did not vote on requiring water companies to reduce sewage discharge into British rivers and seas",
+        ],
         thumbnail:
           "https://upload.wikimedia.org/wikipedia/commons/1/1f/Official_portrait_of_Keir_Starmer_%28crop%29.jpg",
       },
